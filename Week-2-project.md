@@ -1,4 +1,4 @@
-# Week 1 Project
+# Week 2 Project
 
 ### Part 1. Models
 1. What is our user repeat rate?
