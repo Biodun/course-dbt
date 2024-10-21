@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: aggregated_session_data
+    description: Aggregated metrics for each session (session duration, number of page views, final step, was purchase completed, etc.)
+    columns:
+      - name: session_id
+        description: Session identifier
+        tests:
+          - unique
+          - not_null
+
+      - name: session_duration_minutes
+        description: Duration of the browsing session
+        tests:
+          - not_null
+          
+      - name: num_pageviews_in_session
+        description: Number of pages viewed during the session
+        tests:
+          - not_null

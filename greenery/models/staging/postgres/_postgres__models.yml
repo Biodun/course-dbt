@@ -6,12 +6,39 @@ models:
   
   - name: _stg_postgres__events
     description: Order events
+    columns:
+      - name: event_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - relationships:
+              to: ref('_stg_postgres__orders')
+              field: order_id 
+      - name: event_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['page_view', 'add_to_cart', 'checkout', 'package_shipped']
 
   - name: _stg_postgres__orders
     description: Customer orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
 
   - name: _stg_postgres__order_items
     description: contents of each order_items
+    tests:
+      - unique:
+          column_name: "(order_id || '-' || product_id )"
+    columns:
+      - name: order_id
+        tests:  
+          - not_null
 
   - name: _stg_postgres__products
     description: Products we have in stock
