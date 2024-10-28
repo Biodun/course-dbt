@@ -3,6 +3,9 @@ version: 2
 models:
   - name: aggregated_session_data
     description: Aggregated metrics for each session (session duration, number of page views, final step, was purchase completed, etc.)
+    tests:
+      - dbt_expectations.expect_table_column_count_to_equal:
+          value: 10
     columns:
       - name: session_id
         description: Session identifier

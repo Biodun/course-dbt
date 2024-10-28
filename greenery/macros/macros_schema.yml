@@ -1,0 +1,19 @@
+version: 2
+
+macros:
+  - name: duration_calculator
+    description: This macro calculates the first and last time stamps as well as duration for a specified event or occurrence.
+    arguments:
+      - name: timestamp_column
+        type: string
+        description: The name of the column containing the timestamps that will be used for duration calculations
+      - name: result_name
+        type: string
+        description: The prefix that will be appended to the result columns (PREFIX_start_time, PREFIX_end_time, and PREFIX_duration_minutes)
+
+  - name: grant_permissions
+    description: Grants the user-specified permissions the schema's and models created by the dbt operations in this project. 
+    arguments:
+      - name: role
+        type: string
+        description: The Snowflake role that we want to grant permissions to.

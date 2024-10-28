@@ -10,12 +10,12 @@ from
 group by 1
 
 ),
+
+
 session_duration AS (
     select
         session_id,
-        min(created_at) AS session_start_time,
-        max(created_at) AS session_end_time,
-        DATEDIFF(minute, session_start_time, session_end_time)  AS session_duration_minutes
+        {{ duration_calculator("created_at", "session") }}
     from 
         {{ ref('_stg_postgres__events') }}
     group by 1
