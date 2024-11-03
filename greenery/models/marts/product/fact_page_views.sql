@@ -15,6 +15,7 @@ events as (
 
 select
     events.session_id,
+    events.user_id,
     coalesce(events.product_id, order_items.product_id) as product_id,
     sum(case when events.event_type = 'page_view' then 1 else 0 end) as num_page_views_for_product,
     sum(case when events.event_type = 'add_to_cart' then 1 else 0 end) as num_add_to_cart_for_product,

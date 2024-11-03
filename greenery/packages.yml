@@ -5,5 +5,5 @@ packages:
   - package: calogica/dbt_expectations
     version: [">=0.10.0", "<0.11.0"]
 
-  - package: brooklyn-data/dbt_artifacts
-    version: 2.7.0
+  # - package: brooklyn-data/dbt_artifacts
+  #   version: 2.7.0
